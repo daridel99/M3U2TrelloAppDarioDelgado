@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="multimedia/kanban.png">
+  <script type="text/javascript" src="funcionalidad/index.js"></script>
+	<link href="estilos/style.css" rel="stylesheet" type="text/css">
+	<title>Trello App</title>
+</head>
+<body>
+
+	<button class="button" onclick="crear()">Nueva Tarea</button>
+
+<div class="espacio3D">
+  <div class="cubo3D">
+    <div class="base"></div>
+    <aside class="cara cara1">Kanban</aside>
+    <aside class="cara cara2">Kanban</aside>
+    <aside class="cara cara3">Kanban</aside>
+    <aside class="cara cara4">Kanban</aside>
+    <aside class="cara cara5"></aside>
+    <aside class="cara cara6"> <img src="multimedia/2a9p.gif" alt="gif de jack bailando" width="100%" height="100%"></aside>
+  </div><!-- termina cubo 3d -->
+</div><!-- termina espacio 3d -->
+<div id="outerdiv1" class="tabla1">
+  <p>POR HACER</p>
+</div>
+<div id="outerdiv2" class="tabla2">
+  <p>HACIENDO</p>
+</div>
+<div id="outerdiv3" class="tabla3">
+  <p>COMPLETADO</p>
+</div>
+
+<div class="opciones">
+
+<div class='dropdown'>
+    <div class='title pointerCursor'>Seleccione a un Usuario <i class="fa fa-angle-right"></i></div>
+    
+    <div class='menu pointerCursor hide'>
+      <div class='option' id='option1'>Usuario 1</div>
+      <div class='option' id='option2'>Usuario 2</div>
+      <div class='option' id='option3'>Usuario 3</div>
+      <div class='option' id='option4'>Usuario 4</div>
+    </div>
+
+  </div>
+  <span id='result' Style="Display:none;"> </span>
+  <script>
+
+function toggleClass(elem,className){
+  if (elem.className.indexOf(className) !== -1){
+    elem.className = elem.className.replace(className,'');
+  }
+  else{
+    elem.className = elem.className.replace(/\s+/g,' ') +   ' ' + className;
+  }
+
+  return elem;
+}
+
+function toggleDisplay(elem){
+  const curDisplayStyle = elem.style.display;     
+
+  if (curDisplayStyle === 'none' || curDisplayStyle === ''){
+    elem.style.display = 'block';
+  }
+  else{
+    elem.style.display = 'none';
+  }
+
+}
+
+function toggleMenuDisplay(e){
+  const dropdown = e.currentTarget.parentNode;
+  const menu = dropdown.querySelector('.menu');
+  const icon = dropdown.querySelector('.fa-angle-right');
+
+  toggleClass(menu,'hide');
+  toggleClass(icon,'rotate-90');
+}
+
+function handleOptionSelected(e){
+  toggleClass(e.target.parentNode, 'hide');     
+
+  const id = e.target.id;
+  const newValue = e.target.textContent + ' ';
+  const titleElem = document.querySelector('.dropdown .title');
+  const icon = document.querySelector('.dropdown .title .fa');
+
+
+  titleElem.textContent = newValue;
+  titleElem.appendChild(icon);
+
+  //trigger custom event
+  document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
+    //setTimeout is used so transition is properly shown
+  setTimeout(() => toggleClass(icon,'rotate-90',0));
+}
+
+function handleTitleChange(e){
+  const result = document.getElementById('result');
+
+  result.innerHTML =e.target.textContent;
+}
+
+//get elements
+const dropdownTitle = document.querySelector('.dropdown .title');
+const dropdownOptions = document.querySelectorAll('.dropdown .option');
+
+//bind listeners to these elements
+dropdownTitle.addEventListener('click', toggleMenuDisplay);
+
+dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
+
+document.querySelector('.dropdown .title').addEventListener('change',handleTitleChange);
+
+</script>
+
+<div id="container">
+    Estado de la Tarea:
+    <div align="riggt">
+    <input type="radio" id="1" name="language" value="1" checked>
+    <label for="1">POR HACER</label>
+ <br>
+    <input type="radio" id="2" name="language" value="2">
+    <label for="2">HACIENDO</label>
+ <br>
+    <input type="radio" name="language" value="3">
+    <label for="3">COMPLETADO</label>
+    </div>
+    <button id="submit">Submit</button>
+</div>
+
+<script> 
+    document.getElementById('submit').onclick = function() {
+    var radio = document.querySelector('input[type=radio][name=language]:checked');
+    console.log(radio.value);
+    console.log(radio.checked);
+    radio.checked = false;
+    console.log(radio.checked);
+    }
+</script>
+
+</div>
+</body>
+</html>

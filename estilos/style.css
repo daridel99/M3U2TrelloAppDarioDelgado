@@ -1,0 +1,242 @@
+body{
+  font-family:sans-serif;
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+}
+
+h2 {
+  background-color: rgba(0,127,255,0.5);
+  box-shadow: 2px 2px 10px #666;
+  padding: 0.25em;
+}
+
+div.espacio3D {
+  width: 500px;
+  height: 500px;
+  margin: 3em auto 0 auto;
+  border: 0px solid rgba(0,255,0,0.5);
+  /*position: relative;*/
+  position: absolute;
+  /*left: -25%;
+  top: -32%;*/
+  left: -150px;
+  top: -200px;
+  perspective-origin: center -50%;
+  perspective: 500px;
+  transform: scale(0.25);
+
+}
+
+div.cubo3D {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(-150px);
+  animation-name: gira;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+}
+
+div.base {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0,0,0,0.15);
+  transform: translateX(75px) translateY(75px) rotateX(90deg) translateZ(-200px);
+  box-shadow: 0 0 50px 100px rgba(0,0,0,0.15);
+}
+aside.cara {
+  position: absolute;
+  width: 298px;
+  height: 298px;
+  background-color: rgba(255,100,0,0.25);
+  border: 1px solid rgba(255,100,0,0.75);
+  color: #08f;
+  font-size: 3em;
+  text-align: center;
+  line-height: 298px;
+  box-shadow: 0px 0px 5px rgba(255,100,0,0.75);
+}
+
+aside.cara1 { /* Frente */
+  transform: translateZ(150px);
+}
+
+aside.cara2 { /* Atrás */
+  transform: rotateY(180deg) translateZ(150px);
+}
+
+aside.cara3 { /* Izquierda */
+  transform: rotateY(-90deg) translateZ(150px);
+}
+
+aside.cara4 { /* derecha */
+  transform: rotateY(90deg) translateZ(150px);
+}
+
+aside.cara5 { /* abajo */
+  transform: rotateX(-90deg) translateZ(150px);
+}
+
+aside.cara6 { /* arriba */
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+@keyframes gira {
+  0% {
+    transform: translateZ(-150px) rotateY(0deg);
+  }
+  100% {
+    transform: translateZ(-150px) rotateY(360deg);
+  }
+}
+
+div.tabla1 {
+
+  width: 215px;
+  height: auto-size;
+  margin: 3em auto 0 auto;
+  border: 2px solid rgba(255,0,0,0.5);
+  /*position: relative;*/
+  position: absolute;
+ /* left: 5%;
+  top: 15%; */
+  left: 30px;
+  top: 100px;
+  text-align:center;
+
+}
+
+div.tabla2 {
+
+  width: 215px;
+  height: auto-size; /*550px;*/
+  margin: 3em auto 0 auto;
+  border: 2px solid rgba(0,0,255,0.5);
+  /*position: relative;*/
+  position: absolute;
+  /*left: 45%;
+  top: 15%;
+  text-align:center;*/
+  position: absolute;
+ /* left: 5%;
+  top: 15%; */
+  left: 265px;
+  top: 100px;
+  text-align:center;
+
+
+}
+
+div.tabla3 {
+
+  width: 215px;
+  height: auto-size;
+  margin: 3em auto 0 auto;
+  border: 2px solid rgba(0,255,0,0.5);
+  /*position: relative;*/
+  position: absolute;
+  /*left: 85%;
+  top: 15%;*/
+  left: 499px;
+  top: 100px;
+  text-align:center;
+
+}
+
+div.opciones{
+
+position: absolute;
+  /*left: 85%;
+  top: 15%;*/
+  left: 900px;
+  top: 150px;
+
+}
+
+div.interno{
+
+  margin: 3em auto 0 auto;
+  border: 2px solid rgba(204,153,255,0.5);
+
+}
+
+.button {
+
+  background-color: #38dad5; /*#4CAF50 Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: absolute;
+  /*left: 85%;
+  top: 15%;*/
+  left: 900px;
+  top: 50px;
+
+}
+
+p{
+
+  color:Brown; 
+   font-size:20px;
+   font-family:Courier;
+   font-weight:bold;
+   font-style:italic;
+   line-height:30px;
+   letter-spacing:5px;
+   text-decoration:underline;
+   text-transform:capitalize;
+
+}
+
+
+/* usuario .... */
+
+
+.hide {
+    max-height: 0 !important;
+}
+
+.dropdown{
+  border: 0.1em solid black;
+  width: 13em;
+  margin-bottom: 1em;
+}
+
+.dropdown .title{
+  margin: .3em .3em .3em .3em;  
+  width: 100%;
+}
+
+.dropdown .title .fa-angle-right{
+  float: right;
+  margin-right: .7em;
+  transition: transform .3s;
+}
+
+.dropdown .menu{
+  transition: max-height .5s ease-out;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.dropdown .menu .option{
+  margin: .3em .3em .3em .3em;
+  margin-top: 0.3em;
+}
+
+.dropdown .menu .option:hover{
+  background: rgba(0,0,0,0.2);
+}
+
+.pointerCursor:hover{
+  cursor: pointer;
+}
+
+.rotate-90{
+  transform: rotate(90deg);
+}
