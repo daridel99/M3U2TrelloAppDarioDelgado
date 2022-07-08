@@ -10,6 +10,7 @@
 </head>
 <body>
 
+  <h1>Tarea M3U2 - App Trello</h1>
 	<button class="button" onclick="crear()">Nueva Tarea</button>
 
 <div class="espacio3D">
@@ -36,7 +37,7 @@
 <div class="opciones">
 
 <div class='dropdown'>
-    <div class='title pointerCursor'>Seleccione a un Usuario <i class="fa fa-angle-right"></i></div>
+    <div class='title pointerCursor'><b>Seleccione a un Usuario </b><i class="fa fa-angle-right"></i></div>
     
     <div class='menu pointerCursor hide'>
       <div class='option' id='option1'>Usuario 1</div>
@@ -118,19 +119,21 @@ document.querySelector('.dropdown .title').addEventListener('change',handleTitle
 
 </script>
 
-<div id="container">
-    Estado de la Tarea:
-    <div align="riggt">
-    <input type="radio" id="1" name="language" value="1" checked>
+<div id="container" width="100px">
+
+   <p1>Estado de la Tarea:</p1> 
+   
+    <div alight="right">
+    <input type="radio" id="1" name="language" value="1">
     <label for="1">POR HACER</label>
  <br>
     <input type="radio" id="2" name="language" value="2">
     <label for="2">HACIENDO</label>
  <br>
-    <input type="radio" name="language" value="3">
+    <input type="radio" id="3" name="language" value="3">
     <label for="3">COMPLETADO</label>
     </div>
-    <button id="submit">Submit</button>
+    <button id="submit" Style="Display:none" > Submit </button>
 </div>
 
 <script> 
@@ -142,6 +145,13 @@ document.querySelector('.dropdown .title').addEventListener('change',handleTitle
     console.log(radio.checked);
     }
 </script>
+
+<br>
+<label for="startL" class="fecha">Fecha límite:
+<input type="date" id="start" name="trip-start"
+       value="2022-07-07"
+       min="2022-01-01" max="2022-12-31">
+</label>
 
 </div>
 </body>
