@@ -1,5 +1,5 @@
 //var actividad="";
-
+/*
 function crear(){
 	
 	
@@ -46,5 +46,88 @@ function crear(){
 			}
 
 
+*/
+
+//var actividad="";
+var cont=1;
+function crear(){
+	
+	
+	var actividad = window.prompt('Describa la tarea ha realizar');
+
+	if( actividad != ' ' && actividad != null && actividad != ''){
+	var radio = document.querySelector('input[type=radio][name=language]:checked');
+	var radioV = parseInt(document.querySelector('input[type=radio][name=language]:checked').value);
+	var dateControl = document.querySelector('input[type="date"]').value;
+	var usuario = document.getElementById('result');
+	console.log(dateControl)
+	switch(radioV){
+
+		case 1:
+
+		console.log(cont.toString());
+		var valor = document.getElementById('example-origin1');
+		document.getElementById('example-origin1').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario.innerHTML + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+		console.log(radio.checked);
+		radio.checked = false;
+		console.log(radio.checked);
+		//radio.false;
+		cont+=1;
+		break;
+
+		case 2:
+
+		var valor = document.getElementById('example-origin2');
+		document.getElementById('example-origin2').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario.innerHTML + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+		radio.checked = false;
+		cont+=1;
+		break;
+
+		case 3:
+
+		var valor = document.getElementById('example-origin3');
+		document.getElementById('example-origin3').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario.innerHTML + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+		radio.checked = false;
+		cont+=1;
+		break;
+
+	}
+		}
+		
+		//cont++;
+
+			}
+
+
 /**/
 
+function onDragStart(event) {
+  event
+    .dataTransfer
+    .setData('text/plain', event.target.id);
+
+    event
+    .currentTarget
+    .style
+    /*.backgroundColor = 'yellow';*/
+}
+
+function onDragOver(event) {
+  event.preventDefault();
+}
+
+function onDrop(event) {
+    const id = event
+    .dataTransfer
+    .getData('text');
+    const draggableElement = document.getElementById(id);
+    const dropzone = event.target;
+    dropzone.appendChild(draggableElement);
+
+    event
+
+      .dataTransfer
+
+      .clearData();
+
+}
