@@ -1,4 +1,3 @@
-//var actividad="";
 /*
 function crear(){
 	
@@ -99,7 +98,7 @@ function crear(){
 			}
 
 
-/**/
+/* dinamismo */
 
 function onDragStart(event) {
   event
@@ -131,3 +130,59 @@ function onDrop(event) {
       .clearData();
 
 }
+
+/* API */
+
+	const request = new XMLHttpRequest();
+	request.open('GET', 'https://62c7cf638c90491c2ca7c0e9.mockapi.io/works', true);
+
+	request.onload = function () {
+  if (request.status >= 200 && request.status < 400) {
+
+    const data = JSON.parse(this.response);
+    
+    data.forEach((pelicula) => {
+      
+	var actividad = pelicula.tarea;
+	var radioV = parseInt(pelicula.estado);
+	var dateControl = pelicula.fecha;
+	var usuario = pelicula.usuario;
+	console.log(dateControl)
+
+	switch(radioV){
+
+		case 1:
+
+		var valor = document.getElementById('example-origin1');
+		document.getElementById('example-origin1').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+
+		break;
+
+		case 2:
+
+		var valor = document.getElementById('example-origin2');
+		document.getElementById('example-origin2').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+
+		break;
+		
+		case 3:
+
+		var valor = document.getElementById('example-origin3');
+		document.getElementById('example-origin3').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+
+		break;
+
+	}
+		
+    });
+
+  } 
+
+  else {
+
+  	alert("tas pendejo mijo xd");
+
+  }
+}
+
+request.send();
