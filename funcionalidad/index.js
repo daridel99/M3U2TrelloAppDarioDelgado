@@ -18,7 +18,7 @@ function crear(){
 		var valor = document.getElementById('example-origin1');
 		document.getElementById('example-origin1').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuarioT.innerHTML + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
 		//document.getElementById('result').innerHTML="";
-		document.getElementById('Contenido').disabled = true;
+		//document.getElementById('Contenido').disabled = true;
 		radio.checked = false;
 		cont+=1;
 		break;
@@ -27,7 +27,7 @@ function crear(){
 
 		var valor = document.getElementById('example-origin2');
 		document.getElementById('example-origin2').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuarioT.innerHTML + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
-		document.getElementById('Contenido').disabled = true;
+		//document.getElementById('Contenido').disabled = true;
 		radio.checked = false;
 		cont+=1;
 		break;
@@ -36,7 +36,7 @@ function crear(){
 
 		var valor = document.getElementById('example-origin3');
 		document.getElementById('example-origin3').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuarioT.innerHTML + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
-		document.getElementById('Contenido').disabled = true;
+		//document.getElementById('Contenido').disabled = true;
 		radio.checked = false;
 		cont+=1;
 		break;
@@ -48,7 +48,9 @@ function crear(){
 		console.log(cont);
 		
 		/* API POST */
-
+	
+		usuarioT = document.getElementById('result').innerHTML;
+	
 		fetch('https://62c7cf638c90491c2ca7c0e9.mockapi.io/works',{
 			method: 'POST',
 			headers:{
