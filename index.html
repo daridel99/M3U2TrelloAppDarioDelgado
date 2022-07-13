@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Required meta tags -->
+      <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="multimedia/kanban.png">
+  <link rel="icon" href="multimedia/Kanban.png">
   <script type="text/javascript" src="funcionalidad/index.js"></script>
 	<link href="estilos/style.css" rel="stylesheet" type="text/css">
-	<title>Trello App</title>
-</head>
-<body>
+	<title>Trello APP</title>
 
-  
+</head>
+<body onchange="toggleButton()">
+
 <h1>Tarea M3U2 - App Trello</h1>
 
-<button class="button" onclick="crear()">Nueva Tarea</button>
+	<button id="Contenido" class="button" onclick="crear()" disabled>Nueva Tarea</button>
+
+  <script>
+
+   function toggleButton()
+            {
+                var username = document.getElementById('result').innerHTML;
+                var radioV = parseInt(document.querySelector('input[type=radio][name=language]:checked').value);
+                //var username = document.getElementById('result').value;
+                //var password = document.getElementById('password').value;
+ 
+                if (username != "" && radioV != 0) {
+                    document.getElementById('Contenido').disabled = false;
+                } else {
+                    document.getElementById('Contenido').disabled = true;
+                }
+            }
+
+</script>
 
 <div class="espacio3D">
-<div class="cubo3D">
-  <div class="base"></div>
-  <aside class="cara cara1">Kanban</aside>
-  <aside class="cara cara2">Kanban</aside>
-  <aside class="cara cara3">Kanban</aside>
-  <aside class="cara cara4">Kanban</aside>
-  <aside class="cara cara5"></aside>
-  <aside class="cara cara6"> <img src="multimedia/2a9p.gif" alt="gif de jack bailando" width="100%" height="100%"></aside>
-</div><!-- termina cubo 3d -->
+  <div class="cubo3D">
+    <div class="base"></div>
+    <aside class="cara cara1">Kanban</aside>
+    <aside class="cara cara2">Kanban</aside>
+    <aside class="cara cara3">Kanban</aside>
+    <aside class="cara cara4">Kanban</aside>
+    <aside class="cara cara5"></aside>
+    <aside class="cara cara6"> <img src="multimedia/2a9p.gif" alt="gif de jack bailando" width="100%" height="100%"></aside>
+  </div><!-- termina cubo 3d -->
 </div><!-- termina espacio 3d -->
 
 
 <div class="example-parent"> 
 <div id="example-origin1"
-  class="example-origin"
-  ondragover="onDragOver(event);"
-  ondrop="onDrop(event);"
-  >
-<p>POR HACER</p>
+    class="example-origin"
+    ondragover="onDragOver(event);"
+    ondrop="onDrop(event);"
+    >
+  <p>POR HACER</p>
 
 </div>
 
 <div id="example-origin2"
-  class="origin-dropzone"
-  ondragover="onDragOver(event);"
-  ondrop="onDrop(event);">
-<p>HACIENDO</p>
+    class="origin-dropzone"
+    ondragover="onDragOver(event);"
+    ondrop="onDrop(event);">
+  <p>HACIENDO</p>
 
 </div>
 
 <div id="example-origin3"
-  class="example-dropzone"
-  ondragover="onDragOver(event);"
-  ondrop="onDrop(event);">
-<p>COMPLETADO</p>
+    class="example-dropzone"
+    ondragover="onDragOver(event);"
+    ondrop="onDrop(event);">
+  <p>COMPLETADO</p>
 
 </div>
 
@@ -64,74 +83,74 @@
 <div class="opciones">
 
 <div class='dropdown'>
-  <div class='title pointerCursor'><b>Seleccione a un Usuario </b><i class="fa fa-angle-right"></i></div>
-  
-  <div class='menu pointerCursor hide'>
-    <div class='option' id='option1'>Usuario 1</div>
-    <div class='option' id='option2'>Usuario 2</div>
-    <div class='option' id='option3'>Usuario 3</div>
-    <div class='option' id='option4'>Usuario 4</div>
+    <div class='title pointerCursor'><b>Seleccione a un Usuario </b><i class="fa fa-angle-right"></i></div>
+    
+    <div class='menu pointerCursor hide'>
+      <div class='option' id='option1'>Usuario 1</div>
+      <div class='option' id='option2'>Usuario 2</div>
+      <div class='option' id='option3'>Usuario 3</div>
+      <div class='option' id='option4'>Usuario 4</div>
+    </div>
+
   </div>
+  <span id='result' Style="Display:none;"></span>
 
-</div>
-<span id='result' Style="Display:none;"> </span>
-
-<script>
-
+  <script>
+//Style="Display:none;"
 function toggleClass(elem,className){
-if (elem.className.indexOf(className) !== -1){
-  elem.className = elem.className.replace(className,'');
-}
-else{
-  elem.className = elem.className.replace(/\s+/g,' ') +   ' ' + className;
-}
+  if (elem.className.indexOf(className) !== -1){
+    elem.className = elem.className.replace(className,'');
+  }
+  else{
+    elem.className = elem.className.replace(/\s+/g,' ') +   ' ' + className;
+  }
 
-return elem;
+  return elem;
 }
 
 function toggleDisplay(elem){
-const curDisplayStyle = elem.style.display;     
+  const curDisplayStyle = elem.style.display;     
 
-if (curDisplayStyle === 'none' || curDisplayStyle === ''){
-  elem.style.display = 'block';
-}
-else{
-  elem.style.display = 'none';
-}
+  if (curDisplayStyle === 'none' || curDisplayStyle === ''){
+    elem.style.display = 'block';
+  }
+  else{
+    elem.style.display = 'none';
+  }
 
 }
 
 function toggleMenuDisplay(e){
-const dropdown = e.currentTarget.parentNode;
-const menu = dropdown.querySelector('.menu');
-const icon = dropdown.querySelector('.fa-angle-right');
+  const dropdown = e.currentTarget.parentNode;
+  const menu = dropdown.querySelector('.menu');
+  const icon = dropdown.querySelector('.fa-angle-right');
 
-toggleClass(menu,'hide');
-toggleClass(icon,'rotate-90');
+  toggleClass(menu,'hide');
+  toggleClass(icon,'rotate-90');
 }
 
 function handleOptionSelected(e){
-toggleClass(e.target.parentNode, 'hide');     
+  toggleClass(e.target.parentNode, 'hide');     
 
-const id = e.target.id;
-const newValue = e.target.textContent + ' ';
-const titleElem = document.querySelector('.dropdown .title');
-const icon = document.querySelector('.dropdown .title .fa');
+  const id = e.target.id;
+  const newValue = e.target.textContent + ' ';
+  const titleElem = document.querySelector('.dropdown .title');
+  const icon = document.querySelector('.dropdown .title .fa');
 
 
-titleElem.textContent = newValue;
-titleElem.appendChild(icon);
+  titleElem.textContent = newValue;
+  titleElem.appendChild(icon);
 
-//trigger custom event
-document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
-  //setTimeout is used so transition is properly shown
-setTimeout(() => toggleClass(icon,'rotate-90',0));
+  //trigger custom event
+  document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
+    //setTimeout is used so transition is properly shown
+  setTimeout(() => toggleClass(icon,'rotate-90',0));
 }
 
 function handleTitleChange(e){
-const result = document.getElementById('result');
+  const result = document.getElementById('result');
 
-result.innerHTML =e.target.textContent;
+  result.innerHTML =e.target.textContent;
 }
 
 //get elements
@@ -148,40 +167,47 @@ document.querySelector('.dropdown .title').addEventListener('change',handleTitle
 </script>
 
 <div id="container" width="100px">
-  <br>
-  <p1>Estado de la Tarea:</p1>
+    <br>
+    <p1>Estado de la Tarea:</p1>
 <div >
 
 <br>
-  <input type="radio" id="1" name="language" value="1">
-  <label for="1"> POR HACER</label>
+    <input type="radio" id="1" name="language" value="1">
+    <label for="1"> POR HACER</label>
 <br>
-  <input type="radio" id="2" name="language" value="2">
-  <label for="2"> HACIENDO</label>
+    <input type="radio" id="2" name="language" value="2">
+    <label for="2"> HACIENDO</label>
 <br>
-  <input type="radio" id="3" name="language" value="3">
-  <label for="3"> COMPLETADO</label>
-  </div>
-  <button id="submit" Style="Display:none;">Submit</button>
+    <input type="radio" id="3" name="language" value="3">
+    <label for="3"> COMPLETADO</label>
+    </div>
+    <button id="submit" Style="Display:none;">Submit</button>
 </div>
 
 <script> 
-  document.getElementById('submit').onclick = function() {
-  var radio = document.querySelector('input[type=radio][name=language]:checked');
-  console.log(radio.value);
-  console.log(radio.checked);
-  radio.checked = false;
-  console.log(radio.checked);
-  }
+    document.getElementById('submit').onclick = function() {
+    var radio = document.querySelector('input[type=radio][name=language]:checked');
+    console.log(radio.value);
+    console.log(radio.checked);
+    radio.checked = false;
+    console.log(radio.checked);
+    }
 </script>
-<br></br>
+<br>
 <label for="startL" class="fecha">Fecha límite:
 <input type="date" id="start" name="trip-start"
-     value="2022-07-07"
-     min="2022-01-01" max="2022-12-31">
+       value="2022-07-07"
+       min="2022-01-01" max="2022-12-31">
 </label>
 
 </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 
 </body>
 </html>
