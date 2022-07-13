@@ -166,21 +166,21 @@ function onDrop(event) {
 		case 1:
 
 		var valor = document.getElementById('example-origin1');
-		document.getElementById('example-origin1').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+		document.getElementById('example-origin1').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ " <br> <span class=\"float-right\"><button type=\"button\" onclick=\" confirm('confirma que desa borrarlo?') ? fetch( 'https://62c7cf638c90491c2ca7c0e9.mockapi.io/works/"+idT+"',{method: 'DELETE',}).then(() => $('#draggable-"+cont+"').remove()) : console.log('You clic cancel') \" ><i class=\"material-icons\">delete</i></button></span> </div>";
 		cont+=1;
 		break;
 
 		case 2:
 
 		var valor = document.getElementById('example-origin2');
-		document.getElementById('example-origin2').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+		document.getElementById('example-origin2').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ " <br> <span class=\"float-right\"><button type=\"button\" onclick=\" confirm('confirma que desa borrarlo?') ? fetch( 'https://62c7cf638c90491c2ca7c0e9.mockapi.io/works/"+idT+"',{method: 'DELETE',}).then(() => $('#draggable-"+cont+"').remove()) : console.log('You clic cancel') \" ><i class=\"material-icons\">delete</i></button></span> </div>";
 		cont+=1;
 		break;
-		
+
 		case 3:
 
 		var valor = document.getElementById('example-origin3');
-		document.getElementById('example-origin3').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad+ '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ "</div>";
+		document.getElementById('example-origin3').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuario + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ " <br> <span class=\"float-right\"><button type=\"button\" onclick=\" confirm('confirma que desa borrarlo?') ? fetch( 'https://62c7cf638c90491c2ca7c0e9.mockapi.io/works/"+idT+"',{method: 'DELETE',}).then(() => $('#draggable-"+cont+"').remove()) : console.log('You clic cancel') \" ><i class=\"material-icons\">delete</i></button></span></div>";
 		cont+=1;
 		break;
 
