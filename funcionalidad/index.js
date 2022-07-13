@@ -1,4 +1,3 @@
-
 var cont=1;
 const listaActividadesUI1 = document.getElementById('.example-origin');
 const reload = document.querySelector('#reload');
@@ -39,6 +38,7 @@ function crear(){
 
 		var valor = document.getElementById('example-origin3');
 		document.getElementById('example-origin3').innerHTML= valor.innerHTML + " <div id=\"draggable-"+cont+"\" class=\"example-draggable\" draggable=\"true\" ondragstart= \" onDragStart(event); \" >" + "Usuario encargado: <center> <br> <b>" + usuarioT.innerHTML + '</b> </center> <br>'+ "Tarea: " +actividad + '<br>'+ "<center> <br> Fecha: <br> </center>" +dateControl+ " <br> <br> <span class=\"float-right\"><button type=\"button\" onclick=\"confirm('confirma que desa borrarlo?') ? fetch( 'https://62c7cf638c90491c2ca7c0e9.mockapi.io/works/"+cont+"',{method: 'DELETE',}).then(() => $('#draggable-"+cont+"').remove()) : console.log('You clic cancel')\"><i class=\"material-icons\">delete</i></button></span>  </div>";
+		//fetch( 'https://62c7cf638c90491c2ca7c0e9.mockapi.io/works/"+cont+"',{method: 'DELETE',}).then(() => $('#draggable-"+cont+"').remove())
 		//document.getElementById('Contenido').disabled = true;
 		radio.checked = false;
 		//cont+=1;
@@ -46,14 +46,11 @@ function crear(){
 
 	}
 		}
-		
 
 		console.log(cont);
 		
 		/* API POST */
-	
-		usuarioT = document.getElementById('result').innerHTML;
-	
+
 		fetch('https://62c7cf638c90491c2ca7c0e9.mockapi.io/works',{
 			method: 'POST',
 			headers:{
@@ -74,14 +71,16 @@ function crear(){
 
 
 		})
-	
-			cont+=1;
-			console.log(cont)
-	
+
+		cont+=1;
+		console.log(cont)
+		//location.reload();
+			
 			}
 
 
-/* dinamismo */
+
+/* funcionalidad */
 
 function onDragStart(event) {
   event
@@ -98,11 +97,10 @@ function onDragOver(event) {
   event.preventDefault();
 }
 
-/* API PUT*/
-
 function onDrop(event) {
 
-    nombre=event.target.id;
+		nombre=event.target.id;
+    //console.log(nombre.toString())
 
     if(event.path[0].className=='example-dropzone'){
       esdoC=3;
@@ -121,8 +119,8 @@ function onDrop(event) {
     idC=id.toString().slice(10);
     	
     	fetch('https://62c7cf638c90491c2ca7c0e9.mockapi.io/works/'+idC,{
-	method: 'PUT',
-	headers:{
+			method: 'PUT',
+			headers:{
 
 				'Content-Type': 'application/json',
 
@@ -143,7 +141,8 @@ function onDrop(event) {
 
 }
 
-/* API GET */
+
+/* API GET*/
 
 	const request = new XMLHttpRequest();
 	request.open('GET', 'https://62c7cf638c90491c2ca7c0e9.mockapi.io/works', true);
@@ -159,7 +158,8 @@ function onDrop(event) {
 	var radioV = parseInt(pelicula.estado);
 	var dateControl = pelicula.fecha;
 	var usuario = pelicula.usuario;
-	console.log(dateControl)
+	var idT= pelicula.id;
+	//console.log(dateControl)
 
 	switch(radioV){
 
@@ -185,6 +185,8 @@ function onDrop(event) {
 		break;
 
 	}
+
+	console.log(cont);
 		
     });
 
