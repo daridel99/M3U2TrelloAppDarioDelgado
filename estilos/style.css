@@ -1,9 +1,8 @@
 body{
   /*font-family:sans-serif;*/
   background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-  font-size: 100%;
+  font-size: 100%
 }
-
 
 h2 {
   background-color: rgba(0,127,255,0.5);
