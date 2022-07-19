@@ -99,7 +99,7 @@ function onDrop(event) {
 
 		nombre=event.target.id;
     //console.log(nombre.toString())
-
+if(event.path[0].className=='example-dropzone' || event.path[0].className=='example-origin' || event.path[0].className=='origin-dropzone'){
     if(event.path[0].className=='example-dropzone'){
       esdoC=3;
     }
@@ -138,7 +138,7 @@ function onDrop(event) {
       .clearData();
 
 }
-
+}
 
 /* API GET*/
 
