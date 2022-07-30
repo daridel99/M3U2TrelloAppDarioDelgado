@@ -4,18 +4,22 @@
       <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="multimedia/kanban.png">
   <script type="text/javascript" src="funcionalidad/index.js"></script>
 	<link href="estilos/style.css" rel="stylesheet" type="text/css">
+
 	<title>Trello APP</title>
 
 </head>
-<body onchange="toggleButton()">
+<body onchange="toggleButton()"> 
+
+  <!-- 
+    verifica constantemente el estado del desplegable y
+    el radiobutton para habilitar el boton de nueva tarea 
+  -->
 
 <h1>Tarea M3U2 - App Trello</h1>
 
@@ -27,8 +31,6 @@
             {
                 var username = document.getElementById('result').innerHTML;
                 var radioV = parseInt(document.querySelector('input[type=radio][name=language]:checked').value);
-                //var username = document.getElementById('result').value;
-                //var password = document.getElementById('password').value;
  
                 if (username != "" && radioV != 0) {
                     document.getElementById('Contenido').disabled = false;
@@ -53,10 +55,12 @@
 
 
 <div class="example-parent"> 
+
 <div id="example-origin1"
     class="example-origin"
     ondragover="onDragOver(event);"
     ondrop="onDrop(event);"
+    ondragleave="onDragleave(event);"
     >
   <p>POR HACER</p>
 
@@ -65,7 +69,9 @@
 <div id="example-origin2"
     class="origin-dropzone"
     ondragover="onDragOver(event);"
-    ondrop="onDrop(event);">
+    ondrop="onDrop(event);"
+    ondragleave="onDragleave(event);"
+    >
   <p>HACIENDO</p>
 
 </div>
@@ -73,7 +79,9 @@
 <div id="example-origin3"
     class="example-dropzone"
     ondragover="onDragOver(event);"
-    ondrop="onDrop(event);">
+    ondrop="onDrop(event);"
+    ondragleave="onDragleave(event);"
+    >
   <p>COMPLETADO</p>
 
 </div>
@@ -150,7 +158,7 @@ function handleOptionSelected(e){
 function handleTitleChange(e){
   const result = document.getElementById('result');
 
-  result.innerHTML =e.target.textContent;
+  result.innerHTML = e.target.textContent;
 }
 
 //get elements
