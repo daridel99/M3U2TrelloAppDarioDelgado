@@ -14,20 +14,23 @@
 	<title>Trello APP</title>
 
 </head>
-<body onchange="toggleButton()"> 
+<body> 
+<!-- 
+	body onchange="toggleButton()"
+  
+    	verifica constantemente el estado del desplegable y
+   	 el radiobutton para habilitar el boton de nueva tarea 
 
-  <!-- 
-    verifica constantemente el estado del desplegable y
-    el radiobutton para habilitar el boton de nueva tarea 
   -->
 
 <h1>Tarea M3U2 - App Trello</h1>
 
 	<button id="Contenido" class="button" onclick="crear()" disabled>Nueva Tarea</button>
 
-  <script>
+ 	 <!-- 
+	script>
 
-   function toggleButton()
+   	function toggleButton()
             {
                 var username = document.getElementById('result').innerHTML;
                 var radioV = parseInt(document.querySelector('input[type=radio][name=language]:checked').value);
@@ -39,7 +42,8 @@
                 }
             }
 
-</script>
+	</script 
+	-->
 
 <div class="espacio3D">
   <div class="cubo3D">
