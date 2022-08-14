@@ -15,36 +15,11 @@
 
 </head>
 <body> 
-<!-- 
-	body onchange="toggleButton()"
-  
-    	verifica constantemente el estado del desplegable y
-   	 el radiobutton para habilitar el boton de nueva tarea 
-
-  -->
 
 <h1>Tarea M3U2 - App Trello</h1>
 
-	<button id="Contenido" class="button" onclick="crear()" >Nueva Tarea</button>
+	<button id="Contenido" class="button" onclick="crear()">Nueva Tarea</button>
 	<!-- disabled -->
-
- 	 <!-- 
-	script>
-
-   	function toggleButton()
-            {
-                var username = document.getElementById('result').innerHTML;
-                var radioV = parseInt(document.querySelector('input[type=radio][name=language]:checked').value);
- 
-                if (username != "" && radioV != 0) {
-                    document.getElementById('Contenido').disabled = false;
-                } else {
-                    document.getElementById('Contenido').disabled = true;
-                }
-            }
-
-	</script 
-	-->
 
 <div class="espacio3D">
   <div class="cubo3D">
@@ -109,7 +84,7 @@
   <span id='result' Style="Display:none;"></span>
 
   <script>
-//Style="Display:none;"
+
 function toggleClass(elem,className){
   if (elem.className.indexOf(className) !== -1){
     elem.className = elem.className.replace(className,'');
