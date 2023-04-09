@@ -103,16 +103,20 @@ function onDrop(event) {
 
 	nombre=event.target.id;
 
+	//console.log(nombre)
+
 	event
     .currentTarget
     .style
     .backgroundColor = '';
 
-if(event.path[0].className=='example-dropzone' || event.path[0].className=='example-origin' || event.path[0].className=='origin-dropzone'){
-    if(event.path[0].className=='example-dropzone'){
+	console.log(event.toElement.classList[0])
+
+	if(event.toElement.classList[0]=='example-dropzone' || event.toElement.classList[0]=='example-origin' || event.toElement.classList[0]=='origin-dropzone'){
+    if(event.toElement.classList[0]=='example-dropzone'){
       esdoC=3;
     }
-    else if(event.path[0].className=='example-origin'){
+    else if(event.toElement.classList[0]=='example-origin'){
       esdoC=1;
     }
     else{
@@ -124,6 +128,8 @@ if(event.path[0].className=='example-dropzone' || event.path[0].className=='exam
     .getData('text');
     const draggableElement = document.getElementById(id);
     idC=id.toString().slice(10);
+	console.log(id)
+	//console.log(idC)
     	
     	fetch('https://62c7cf638c90491c2ca7c0e9.mockapi.io/works/'+idC,{
 			method: 'PUT',
@@ -138,6 +144,7 @@ if(event.path[0].className=='example-dropzone' || event.path[0].className=='exam
 				estado: esdoC })})
 
     const dropzone = event.target;
+	
     dropzone.appendChild(draggableElement);
     console.log("estado "+esdoC+", id "+idC)
     event
